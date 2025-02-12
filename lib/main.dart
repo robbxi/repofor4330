@@ -72,10 +72,23 @@ class SecondPage extends StatelessWidget {
             const SizedBox(height: 20),
             ElevatedButton(
               onPressed: () {
-                // Navigate back to the HomePage.
-                Navigator.pop(context);
+                // Show a popup dialog with the text "dog"
+                showDialog(
+                  context: context,
+                  builder: (context) => AlertDialog(
+                    content: const Text("dog"),
+                    actions: [
+                      TextButton(
+                        onPressed: () {
+                          Navigator.pop(context); // Close the dialog
+                        },
+                        child: const Text("OK"),
+                      ),
+                    ],
+                  ),
+                );
               },
-              child: const Text("Go Back"),
+              child: const Text("Show Dog"),
             ),
           ],
         ),
