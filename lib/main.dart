@@ -53,10 +53,23 @@ class SecondPage extends StatelessWidget {
       appBar: AppBar(
         title: const Text("Hello World"),
       ),
-      body: const Center(
-        child: Text(
-          "Hello World",
-          style: TextStyle(fontSize: 24),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            // Display the dog image.
+            Image.asset(
+              'assets/11416.jpg',
+              width: 200,
+              height: 200,
+              fit: BoxFit.cover,
+            ),
+            const SizedBox(height: 20),
+            const Text(
+              "Hello World",
+              style: TextStyle(fontSize: 24),
+            ),
+          ],
         ),
       ),
     );
