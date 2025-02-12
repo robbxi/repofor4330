@@ -69,6 +69,14 @@ class SecondPage extends StatelessWidget {
               "Hello World",
               style: TextStyle(fontSize: 24),
             ),
+            const SizedBox(height: 20),
+            ElevatedButton(
+              onPressed: () {
+                // Navigate back to the HomePage.
+                Navigator.pop(context);
+              },
+              child: const Text("Go Back"),
+            ),
           ],
         ),
       ),
