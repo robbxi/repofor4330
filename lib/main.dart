@@ -57,6 +57,12 @@ class SecondPage extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            // Text at the top of the page.
+            const Text(
+              "Joseph Page",
+              style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
+            ),
+            const SizedBox(height: 20),
             // Display the dog image.
             Image.asset(
               'assets/11416.jpg',
