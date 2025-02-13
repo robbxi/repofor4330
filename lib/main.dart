@@ -175,7 +175,7 @@ class _ThirdPageState extends State<ThirdPage> with SingleTickerProviderStateMix
                 );
               },
               child: Image.asset(
-                'assets/jump_image.jpg',
+                'assets/dog.png',
                 width: 200,
                 height: 200,
                 fit: BoxFit.cover,
