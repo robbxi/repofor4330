@@ -133,10 +133,10 @@ class _ThirdPageState extends State<ThirdPage> with SingleTickerProviderStateMix
   void initState() {
     super.initState();
     _controller = AnimationController(
-      duration: const Duration(milliseconds: 500),
+      duration: const Duration(milliseconds: 250),
       vsync: this,
     );
-    _animation = Tween<double>(begin: 0, end: -20).animate(
+    _animation = Tween<double>(begin: 0, end: -100).animate(
       CurvedAnimation(parent: _controller, curve: Curves.easeInOut),
     );
   }
@@ -155,14 +155,14 @@ class _ThirdPageState extends State<ThirdPage> with SingleTickerProviderStateMix
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Third Page"),
+        title: const Text("Roberts Page"),
       ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             const Text(
-              "Welcome to the Third Page!",
+              "Watch him jump!",
               style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 20),
@@ -184,7 +184,7 @@ class _ThirdPageState extends State<ThirdPage> with SingleTickerProviderStateMix
             const SizedBox(height: 20),
             ElevatedButton(
               onPressed: _jump,
-              child: const Text("Jump Image"),
+              child: const Text("Jump"),
             ),
             const SizedBox(height: 20),
             ElevatedButton(
