@@ -50,7 +50,7 @@ class HomePage extends StatelessWidget {
                   MaterialPageRoute(builder: (context) => const ThirdPage()),
                 );
               },
-              child: const Text("Go to Third Page"),
+              child: const Text("Go to Roberts Page"),
             ),
           ],
         ),
@@ -118,8 +118,38 @@ class SecondPage extends StatelessWidget {
   }
 }
 
-class ThirdPage extends StatelessWidget {
+class ThirdPage extends StatefulWidget {
   const ThirdPage({super.key});
+
+  @override
+  _ThirdPageState createState() => _ThirdPageState();
+}
+
+class _ThirdPageState extends State<ThirdPage> with SingleTickerProviderStateMixin {
+  late AnimationController _controller;
+  late Animation<double> _animation;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = AnimationController(
+      duration: const Duration(milliseconds: 500),
+      vsync: this,
+    );
+    _animation = Tween<double>(begin: 0, end: -20).animate(
+      CurvedAnimation(parent: _controller, curve: Curves.easeInOut),
+    );
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  void _jump() {
+    _controller.forward().then((_) => _controller.reverse());
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -136,6 +166,27 @@ class ThirdPage extends StatelessWidget {
               style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 20),
+            AnimatedBuilder(
+              animation: _animation,
+              builder: (context, child) {
+                return Transform.translate(
+                  offset: Offset(0, _animation.value),
+                  child: child,
+                );
+              },
+              child: Image.asset(
+                'assets/jump_image.jpg',
+                width: 200,
+                height: 200,
+                fit: BoxFit.cover,
+              ),
+            ),
+            const SizedBox(height: 20),
+            ElevatedButton(
+              onPressed: _jump,
+              child: const Text("Jump Image"),
+            ),
+            const SizedBox(height: 20),
             ElevatedButton(
               onPressed: () {
                 Navigator.pop(context);
@@ -148,3 +199,4 @@ class ThirdPage extends StatelessWidget {
     );
   }
 }
+
