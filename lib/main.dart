@@ -29,15 +29,30 @@ class HomePage extends StatelessWidget {
         title: const Text("Hello World"),
       ),
       body: Center(
-        child: ElevatedButton(
-          onPressed: () {
-            // Navigate to the SecondPage when tapped.
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => const SecondPage()),
-            );
-          },
-          child: const Text("Go to Second Page"),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            ElevatedButton(
+              onPressed: () {
+                // Navigate to the SecondPage when tapped.
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const SecondPage()),
+                );
+              },
+              child: const Text("Go to Second Page"),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                // Navigate to the ThirdPage when tapped.
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const ThirdPage()),
+                );
+              },
+              child: const Text("Go to Third Page"),
+            ),
+          ],
         ),
       ),
     );
